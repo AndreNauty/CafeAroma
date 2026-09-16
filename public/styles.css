@@ -1,0 +1,323 @@
+```css
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f8f5f2;
+  color: #333;
+}
+
+header {
+  background: #5c3d2e;
+  color: white;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 20px 60px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.logo img {
+  width: 50px;
+  height: 50px;
+  margin-bottom: 10px;
+}
+
+@keyframes logoEntrada {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.logo {
+  animation: logoEntrada 0.8s ease;
+}
+
+nav {
+  display: flex;
+  gap: 25px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+
+  /* Necessário para a barrinha do ::after */
+  position: relative;
+}
+
+nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 0;
+  height: 2px;
+  background: #ffd699;
+  /* Faz a barrinha crescer suavemente */
+  transition: 0.3s;
+}
+
+nav a:hover {
+  color: #ffd699;
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+.banner {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 60px;
+  background: #f0e6dd;
+}
+
+.texto-banner {
+  width: 45%;
+}
+
+.texto-banner h1 {
+  font-size: 42px;
+  margin-bottom: 20px;
+}
+
+.texto-banner p {
+  font-size: 18px;
+  margin-bottom: 25px;
+  line-height: 28px;
+}
+
+.banner img {
+  width: 400px;
+  border-radius: 15px;
+}
+
+@keyframes entrarEsquerda {
+  from {
+    opacity: 0;
+    transform: translateX(-80px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.texto-banner {
+  animation: entrarEsquerda 1s ease;
+}
+
+@keyframes entrarDireita {
+  from {
+    opacity: 0;
+    transform: translateX(80px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.banner img {
+  animation: entrarDireita 1s ease 0.3s both;
+}
+
+button {
+  background: #8b5e3c;
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: #5c3d2e;
+}
+
+button:hover {
+  background: #5c3d2e;
+  transform: scale(1.05);
+}
+
+.titulo {
+  text-align: center;
+  margin: 50px 0;
+  font-size: 34px;
+}
+
+.cards {
+  display: grid;
+  /* Cria colunas responsivas com largura mínima de 280px e máxima de 1fr */
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2rem; /* Espaçamento entre os cards */
+  padding: 2rem;
+  max-width: 1200px; /* Evita que o container fique esticado demais em telas ultra-wide */
+  margin: 0 auto; /* Centraliza a grade na página */
+}
+
+.card {
+  width: 280px;
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  padding-bottom: 20px;
+
+  /* Necessário para o efeito ficar suave */
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  transition: 0.4s;
+}
+
+.card h3 {
+  margin: 20px 0 10px;
+}
+
+.card p {
+  padding: 0 20px;
+  margin-bottom: 20px;
+  line-height: 24px;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.25);
+}
+
+.card:hover img {
+  transform: scale(1.08);
+}
+======================================================== */
+
+@keyframes aparecerCard {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.card {
+  animation: aparecerCard 0.8s ease both;
+}
+
+/* Primeiro card */
+.card:nth-child(1) {
+  animation-delay: 0.2s;
+}
+
+/* Segundo card */
+.card:nth-child(2) {
+  animation-delay: 0.4s;
+}
+
+/* Terceiro card */
+.card:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+footer {
+  background: #5c3d2e;
+  color: white;
+  text-align: center;
+  padding: 30px;
+}
+
+footer p {
+  margin-top: 10px;
+}
+
+/* =========================================================
+   ANIMAÇÃO — TÍTULO FLUTUANDO
+   ========================================================= */
+
+@keyframes flutuar {
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.titulo {
+  text-align: center;
+  margin: 50px 0;
+  font-size: 34px;
+  animation: flutuar 3s ease-in-out infinite;
+}
+
+/* =========================================================
+   RESUMO DAS ANIMAÇÕES
+   =========================================================
+
+   1. logoEntrada
+      → Logo entra de cima para baixo.
+
+   2. Barrinha do menu
+      → Uma linha aparece quando passa o mouse.
+
+   3. entrarEsquerda
+      → Texto do banner entra pela esquerda.
+
+   4. entrarDireita
+      → Imagem principal entra pela direita.
+
+   5. Botão
+      → Aumenta levemente ao passar o mouse.
+
+   6. Card levantando
+      → Card sobe ao passar o mouse.
+
+   7. Zoom da imagem
+      → Imagem aumenta dentro do card.
+
+   8. aparecerCard
+      → Cards aparecem de baixo para cima.
+
+   9. animation-delay
+      → Cada card aparece em um momento diferente.
+
+   ========================================================= */
+```
